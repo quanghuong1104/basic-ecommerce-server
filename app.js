@@ -36,7 +36,10 @@ app.post('/api/sign-in', async (req, res, next) => {
       console.log(err);
       res.json({
         message: 'Đăng nhập thành công',
-        user: { name, role, email: userEmail, avatar, token },
+        data: {
+          user: { name, role, email: userEmail, avatar },
+          token,
+        },
       });
     });
   } catch (error) {
@@ -52,8 +55,8 @@ app.post('/api/sign-up', async (req, res, next) => {
     if (existingUser) {
       return res.status(400).json({ message: 'Email đã tồn tại' });
     }
-    await UserModel.create({ email, password, name });
-    res.status(201).json({ message: 'Đăng ký thành công' });
+    const u = await UserModel.create({ email, password, name });
+    res.status(201).json({ message: 'Đăng ký thành công', data: { id: u._id } });
   } catch (error) {
     next(error);
   }
@@ -69,7 +72,7 @@ app.get('/api/products', async (req, res, next) => {
         return { ...p._doc, variants };
       }),
     );
-    return res.json(products);
+    return res.json({ data: { products } });
   } catch (error) {
     next(error);
   }
@@ -78,7 +81,7 @@ app.get('/api/products', async (req, res, next) => {
 app.get('/api/category', async (req, res, next) => {
   try {
     const cats = await CategoryModel.find();
-    return res.json(cats);
+    return res.json({ data: { categories: cats } });
   } catch (error) {
     next(error);
   }
@@ -100,7 +103,7 @@ app.get('/api/order', async (req, res, next) => {
     const orders = !state
       ? await OrderModel.find()
       : await OrderModel.find({ state, user_id: req.id });
-    return res.json(orders);
+    return res.json({ data: { orders } });
   } catch (error) {
     next(error);
   }
@@ -119,7 +122,7 @@ app.get('/api/cart', async (req, res, next) => {
         return { ...p, ...product };
       }),
     );
-    return res.json(cart ? (products.length ? products[0]._doc : []) : []);
+    return res.json({ data: { products: cart ? (products.length ? products[0]._doc : []) : [] } });
   } catch (error) {
     next(error);
   }
@@ -147,7 +150,7 @@ app.patch('/api/cart', async (req, res) => {
     cart.product_count = cart.products.length;
     await cart.save();
 
-    res.status(200).json({ message: 'Sản phẩm đã được thêm vào giỏ hàng', cart });
+    res.status(200).json({ message: 'Sản phẩm đã được thêm vào giỏ hàng', data: { cart } });
   } catch (error) {
     res.status(500).json({ message: 'Lỗi máy chủ', error });
   }
@@ -202,7 +205,7 @@ app.get('/api/checkout', async (req, res, next) => {
     }
 
     // Trả về tổng giá
-    return res.json(totalAmount);
+    return res.json({ data: { totalAmount } });
   } catch (error) {
     next(error);
   }
@@ -269,7 +272,7 @@ app.post('/api/checkout', async (req, res, next) => {
   cart.product_count = 0;
   await cart.save();
 
-  return res.json(newOrder);
+  return res.json({ data: { order: newOrder } });
 });
 
 app.use((error, req, res, next) => {
