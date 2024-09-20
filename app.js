@@ -9,11 +9,13 @@ const OrderModel = require('./models/order.model');
 const jwt = require('jsonwebtoken');
 
 app.use(express.json());
+app.use(express.static('public'));
 
 /**
  * Database connection
  */
 const connectorInstance = require('./database/connector.database');
+const { Types } = require('mongoose');
 connectorInstance.connect();
 
 /* Apis */
@@ -60,7 +62,13 @@ app.post('/api/sign-up', async (req, res, next) => {
 app.get('/api/products', async (req, res, next) => {
   const { category } = req.query;
   try {
-    const products = category ? await ProductModel.find({ category }) : await ProductModel.find();
+    const ps = category ? await ProductModel.find({ category }) : await ProductModel.find();
+    const products = await Promise.all(
+      ps.map(async (p) => {
+        const variants = await VariantModel.find({ product: p._id.toString() });
+        return { ...p._doc, variants };
+      }),
+    );
     return res.json(products);
   } catch (error) {
     next(error);
@@ -252,7 +260,6 @@ app.post('/api/checkout', async (req, res, next) => {
     address,
     products: productsToCheckout.map((product) => {
       const { checkout, ...rest } = product._doc;
-      console.log(rest);
       return rest;
     }),
     total_price: totalAmount,

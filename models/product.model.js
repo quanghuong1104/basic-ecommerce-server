@@ -68,6 +68,11 @@ const productSchema = new Schema(
     attributes: {
       type: Schema.Types.Mixed,
     },
+
+    likers: {
+      type: [String],
+      default: [],
+    },
   },
   {
     timestamps: true,
