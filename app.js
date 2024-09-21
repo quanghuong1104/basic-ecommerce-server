@@ -7,9 +7,17 @@ const CartModel = require('./models/cart.model');
 const VariantModel = require('./models/variant.model');
 const OrderModel = require('./models/order.model');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 
 app.use(express.json());
 app.use(express.static('public'));
+app.use(
+  cors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: false,
+  }),
+);
 
 /**
  * Database connection
