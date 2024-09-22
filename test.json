@@ -1,0 +1,280 @@
+[
+    {
+        "product_id": "66ebea7c689da119f5b89b0e",
+        "location": {
+            "City": "TP.Hưng Yên"
+        },
+        "stock": 500,
+        "variants": [
+            {
+                "variant_id": "66ebf7e7e53aac61de44a1c7",
+                "stock": 100
+            },
+            {
+                "variant_id": "66ebf81ae53aac61de44a1c8",
+                "stock": 150
+            },
+            {
+                "variant_id": "66ecec9bc6676d89190f3387",
+                "stock": 50
+            },
+            {
+                "variant_id": "66ececb5c6676d89190f3388",
+                "stock": 200
+            }
+        ],
+        "reservation": []
+    },
+    {
+        "product_id": "66ebeba2689da119f5b89b10",
+        "location": {
+            "City": "TP.Hưng Yên"
+        },
+        "stock": 300,
+        "variants": [
+            {
+                "variant_id": "66ebf92ce53aac61de44a1cc",
+                "stock": 100
+            },
+            {
+                "variant_id": "66ebf947e53aac61de44a1cd",
+                "stock": 120
+            },
+            {
+                "variant_id": "66eced42c6676d89190f338e",
+                "stock": 40
+            },
+            {
+                "variant_id": "66ecedb6c6676d89190f3393",
+                "stock": 40
+            }
+        ],
+        "reservation": []
+    },
+    {
+        "product_id": "66ebebc0689da119f5b89b11",
+        "location": {
+            "City": "TP.Hưng Yên"
+        },
+        "stock": 600,
+        "variants": [
+            {
+                "variant_id": "66ebf98fe53aac61de44a1ce",
+                "stock": 300
+            },
+            {
+                "variant_id": "66ebf9a4e53aac61de44a1cf",
+                "stock": 300
+            }
+        ],
+        "reservation": []
+    },
+    {
+        "product_id": "66ebebcc689da119f5b89b12",
+        "location": {
+            "City": "TP.Hưng Yên"
+        },
+        "stock": 400,
+        "variants": [
+            {
+                "variant_id": "66ebf9fee53aac61de44a1d2",
+                "stock": 150
+            },
+            {
+                "variant_id": "66ebfa0ae53aac61de44a1d3",
+                "stock": 50
+            },
+            {
+                "variant_id": "66ecee46c6676d89190f3398",
+                "stock": 100
+            },
+            {
+                "variant_id": "66ecee5bc6676d89190f3399",
+                "stock": 100
+            }
+        ],
+        "reservation": []
+    },
+    {
+        "product_id": "66ebebef689da119f5b89b13",
+        "location": {
+            "City": "TP.Hưng Yên"
+        },
+        "stock": 200,
+        "variants": [
+            {
+                "variant_id": "66ebfa67e53aac61de44a1d4",
+                "stock": 50
+            },
+            {
+                "variant_id": "66ebfa73e53aac61de44a1d5",
+                "stock": 20
+            },
+            {
+                "variant_id": "66eceebac6676d89190f339c",
+                "stock": 30
+            },
+            {
+                "variant_id": "66eceed3c6676d89190f339d",
+                "stock": 25
+            },
+            {
+                "variant_id": "66eceeeac6676d89190f339e",
+                "stock": 25
+            },
+            {
+                "variant_id": "66ecef05c6676d89190f339f",
+                "stock": 50
+            }
+        ],
+        "reservation": []
+    },
+    {
+        "product_id": "66ebf86be53aac61de44a1c9",
+        "location": {
+            "City": "TP.Hưng Yên"
+        },
+        "stock": 1000,
+        "variants": [
+            {
+                "variant_id": "66ebf8cee53aac61de44a1ca",
+                "stock": 500
+            },
+            {
+                "variant_id": "66ebf8e6e53aac61de44a1cb",
+                "stock": 500
+            }
+        ],
+        "reservation": []
+    },
+    {
+        "product_id": "66ecf1fac6676d89190f33ab",
+        "location": {
+            "City": "TP.Hưng Yên"
+        },
+        "stock": 120,
+        "variants": [
+            {
+                "variant_id": "66ecf396c6676d89190f33b0",
+                "stock": 20
+            },
+            {
+                "variant_id": "66ecf3a8c6676d89190f33b1",
+                "stock": 25
+            },
+            {
+                "variant_id": "66ecf3d1c6676d89190f33b2",
+                "stock": 25
+            },
+            {
+                "variant_id": "66ecf403c6676d89190f33b3",
+                "stock": 30
+            },
+            {
+                "variant_id": "66ecf431c6676d89190f33b4",
+                "stock": 10
+            },
+            {
+                "variant_id": "66ecf442c6676d89190f33b5",
+                "stock": 10
+            }
+        ],
+        "reservation": []
+    },
+    {
+        "product_id": "66ecf27ac6676d89190f33ac",
+        "location": {
+            "City": "TP.Hưng Yên"
+        },
+        "stock": 80,
+        "variants": [
+            {
+                "variant_id": "66ecf490c6676d89190f33b6",
+                "stock": 40
+            },
+            {
+                "variant_id": "66ecf4abc6676d89190f33b7",
+                "stock": 40
+            }
+        ],
+        "reservation": []
+    },
+    {
+        "product_id": "66ecf598c6676d89190f33bd",
+        "location": {
+            "City": "TP.Hưng Yên"
+        },
+        "stock": 100,
+        "variants": [
+            {
+                "variant_id": "66ecf5d7c6676d89190f33bf",
+                "stock": 28
+            },
+            {
+                "variant_id": "66ecf5f3c6676d89190f33c0",
+                "stock": 22
+            },
+            {
+                "variant_id": "66ecf61bc6676d89190f33c1",
+                "stock": 10
+            },
+            {
+                "variant_id": "66ecf62bc6676d89190f33c2",
+                "stock": 40
+            }
+        ],
+        "reservation": []
+    },
+    {
+        "product_id": "66ecf68dc6676d89190f33c5",
+        "location": {
+            "City": "TP.Hưng Yên"
+        },
+        "stock": 70,
+        "variants": [
+            {
+                "variant_id": "66ecf6ccc6676d89190f33c9",
+                "stock": 15
+            },
+            {
+                "variant_id": "66ecf6dcc6676d89190f33ca",
+                "stock": 15
+            },
+            {
+                "variant_id": "66ecf701c6676d89190f33cb",
+                "stock": 10
+            },
+            {
+                "variant_id": "66ecf710c6676d89190f33cc",
+                "stock": 30
+            }
+        ],
+        "reservation": []
+    },
+    {
+        "product_id": "66ecf74cc6676d89190f33cf",
+        "location": {
+            "City": "TP.Hưng Yên"
+        },
+        "stock": 70,
+        "variants": [
+            {
+                "variant_id": "66ecf77fc6676d89190f33d3",
+                "stock": 20
+            },
+            {
+                "variant_id": "66ecf79cc6676d89190f33d4",
+                "stock": 25
+            },
+            {
+                "variant_id": "66ecf7c9c6676d89190f33d5",
+                "stock": 15
+            },
+            {
+                "variant_id": "66ecf7dbc6676d89190f33d6",
+                "stock": 10
+            }
+        ],
+        "reservation": []
+    }
+]

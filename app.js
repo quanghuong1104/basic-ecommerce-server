@@ -6,6 +6,7 @@ const CategoryModel = require('./models/category.model');
 const CartModel = require('./models/cart.model');
 const VariantModel = require('./models/variant.model');
 const OrderModel = require('./models/order.model');
+const InventoryModel = require('./models/inventory.model');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 
@@ -91,7 +92,16 @@ app.get('/api/product-detail/:id', async (req, res, next) => {
   try {
     const p = await ProductModel.findOne({ _id: new Types.ObjectId(id) });
     const variants = await VariantModel.find({ product: id });
-    return res.json({ data: { product: {...p._doc, variants} } });
+    const inventory = await InventoryModel.findOne({ product_id: id });
+    return res.json({
+      data: {
+        product: {
+          ...p._doc,
+          variants,
+          stock_details: { total: inventory.stock, variant_stocks: inventory.variants },
+        },
+      },
+    });
   } catch (error) {
     next(error);
   }
