@@ -91,7 +91,7 @@ app.get('/api/product-detail/:id', async (req, res, next) => {
   try {
     const p = await ProductModel.findOne({ _id: new Types.ObjectId(id) });
     const variants = await VariantModel.find({ product: id });
-    return res.json({ data: { ...p._doc, variants } });
+    return res.json({ data: { product: {...p._doc, variants} } });
   } catch (error) {
     next(error);
   }
