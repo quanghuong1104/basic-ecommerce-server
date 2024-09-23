@@ -116,6 +116,22 @@ app.get('/api/category', async (req, res, next) => {
   }
 });
 
+app.get('/api/product-by-ids', async (req, res, next) => {
+  const { ids } = req.query;
+  console.log(ids);
+  const products = await Promise.all(
+    ids.split(',').map(async (id) => {
+      const product = await ProductModel.findOne({ _id: new Types.ObjectId(id) });
+      const variants = await VariantModel.find({ product: id });
+      return {
+        ...product._doc,
+        variants: variants,
+      };
+    }),
+  );
+  return res.json({ data: { products } });
+});
+
 app.use((req, res, next) => {
   const token = req.headers['x-access-token'];
   if (!token) return res.status(401).json({ message: 'Unauthorized' });
@@ -155,22 +171,6 @@ app.get('/api/cart', async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
-
-app.get('/api/product-by-ids', async (req, res, next) => {
-  const { ids } = req.query;
-  console.log(ids);
-  const products = await Promise.all(
-    ids.split(',').map(async (id) => {
-      const product = await ProductModel.findOne({ _id: new Types.ObjectId(id) });
-      const variants = await VariantModel.find({ product: id });
-      return {
-        ...product._doc,
-        variants: variants,
-      };
-    }),
-  );
-  return res.json({ data: { products } });
 });
 
 app.patch('/api/cart', async (req, res) => {
