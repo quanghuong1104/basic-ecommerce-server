@@ -157,6 +157,21 @@ app.get('/api/cart', async (req, res, next) => {
   }
 });
 
+app.get('/api/product-by-ids', async (req, res, next) => {
+  const { ids } = req.body;
+  const products = await Promise.all(
+    ids.map(async (id) => {
+      const product = await ProductModel.findOne({ _id: new Types.ObjectId(id) });
+      const variants = await VariantModel.find({ product: id });
+      return {
+        ...product._doc,
+        variants: variants,
+      };
+    }),
+  );
+  return res.json({ data: { products } });
+});
+
 app.patch('/api/cart', async (req, res) => {
   const { product_id, variant_id, quantity, checkout } = req.body;
   const user_id = req.id;
