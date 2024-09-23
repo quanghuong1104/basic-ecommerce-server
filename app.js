@@ -158,9 +158,10 @@ app.get('/api/cart', async (req, res, next) => {
 });
 
 app.get('/api/product-by-ids', async (req, res, next) => {
-  const { ids } = req.body;
+  const { ids } = req.query;
+  console.log(ids);
   const products = await Promise.all(
-    ids.map(async (id) => {
+    ids.split(',').map(async (id) => {
       const product = await ProductModel.findOne({ _id: new Types.ObjectId(id) });
       const variants = await VariantModel.find({ product: id });
       return {
