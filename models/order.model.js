@@ -16,7 +16,7 @@ const orderSchema = new Schema(
     address: {
       type: String,
       required: true,
-      default: 'H2205',
+      default: '1277 Giải Phóng, Phường Hoàng Liệt, Quận Hoàng Mai, Hà Nội',
     },
 
     products: {
@@ -32,7 +32,7 @@ const orderSchema = new Schema(
 
     state: {
       type: String,
-      enum: ['pending', 'deliver', 'completed', 'cancelled', 'returned'],
+      enum: ['pending', 'delivered', 'completed', 'cancelled', 'returned'],
       default: 'pending',
     },
   },
